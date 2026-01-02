@@ -1,0 +1,27 @@
+{
+  // VsCode Settings
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.eol": "\n",
+  "files.exclude": {
+    ".svelte-kit": true,
+    "build": true,
+    "node_modules": true,
+    "src-tauri/icons": true,
+    "src-tauri/target": true,
+    "src-tauri/gen": true
+  },
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "package.json": "pnpm-lock.yaml, pnpm-workspace.yaml, .nvmrc"
+  },
+
+  // Language specific settings
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+
+  // Plugin Settings
+  "svelte.enable-ts-plugin": true
+}
