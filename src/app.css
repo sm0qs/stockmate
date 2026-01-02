@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+	color: var(--color-light);
+	background-color: var(--color-surface);
+	user-select: none;
+	-webkit-user-select: none;
+	overflow: hidden;
+	font-family: "Space Grotesk Variable", sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+@theme {
+	--color-light: #fff1db;
+	--color-dark: #0e141c;
+	--color-light-dark: color-mix(in srgb, var(--color-dark) 70%, white 30%);
+
+	--color-accent: #314b6e;
+	--color-accent-dark: color-mix(in srgb, var(--color-accent) 70%, black 30%);
+	--color-accent-light: color-mix(in srgb, var(--color-accent) 50%, white 30%);
+
+	--color-surface: color-mix(in srgb, var(--color-accent-light) 5%, var(--color-dark) 95%);
+}

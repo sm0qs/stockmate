@@ -23,6 +23,7 @@ Stockmate is a desktop application designed to assist photographers in streamlin
 <p align="center">
 	<img src="https://img.shields.io/badge/Tauri-2AC6DB?style=for-the-badge&logo=tauri&logoColor=white" alt="Tauri Logo" />
 	<img src="https://img.shields.io/badge/Svelte-FF3E00?style=for-the-badge&logo=svelte&logoColor=white" alt="Svelte Logo" />
+	<img src="https://img.shields.io/badge/Tailwind_CSS-24C2fD?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS Logo" />
 	<img src="https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white" alt="Rust Logo" />
 	<img src="https://img.shields.io/badge/Node.js-498A40?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js Logo" />
 </p>

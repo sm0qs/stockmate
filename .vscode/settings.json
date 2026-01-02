@@ -29,6 +29,7 @@
 	"[toml]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
+	"files.associations": { "*.css": "tailwindcss" },
 
 	// Plugin Settings
 	"svelte.enable-ts-plugin": true,

@@ -2,5 +2,5 @@
 </script>
 
 <main>
-	<h1>Stockmate</h1>
+	<h1 class="text-5xl">Stockmate</h1>
 </main>

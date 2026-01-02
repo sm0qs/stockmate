@@ -28,4 +28,3 @@ If you update a Tauri plugin in `src-tauri/Cargo.toml`, you also need to update 
 2.  Open `package.json` and find the matching `@tauri-apps/*` package. Set its version to the **exact** number from `Cargo.lock` (for example, `2.7.1`, not `^2.7.1`).
 
 This way, we make sure the frontend and backend use the same tested plugin version.
-
