@@ -17,11 +17,13 @@
 		"prepare": "node ./scripts/prepare.js",
 		"check": "node ./scripts/check.js",
 		"dev:clean": "node ./scripts/clean.js",
+		"dev:reset": "node ./scripts/reset.js",
 		"tauri": "tauri",
 		"format": "prettier --write . && cargo fmt --all --manifest-path ./src-tauri/Cargo.toml"
 	},
 	"dependencies": {
 		"@fontsource-variable/space-grotesk": "^5",
+		"@tauri-apps/plugin-log": "2.7.1",
 		"svelte": "^5"
 	},
 	"devDependencies": {

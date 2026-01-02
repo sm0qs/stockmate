@@ -24,3 +24,21 @@ tauri-build = { version = "2", features = [] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 tauri = { version = "2.9", features = [] }
+
+# Plugins
+tauri-plugin-log = "2"
+tauri-plugin-prevent-default = "4"
+tauri-plugin-single-instance = "2"
+
+# Other
+log = "0"
+
+[profile.dev]
+incremental = true
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "z"
+panic = "abort"
+strip = true
