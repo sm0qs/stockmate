@@ -4,9 +4,9 @@
 	"version": "0.0.0",
 	"identifier": "pl.foxlab.stockmate",
 	"build": {
-		"beforeDevCommand": "pnpm dev",
+		"beforeDevCommand": "vite dev",
 		"devUrl": "http://localhost:1420",
-		"beforeBuildCommand": "pnpm build",
+		"beforeBuildCommand": "vite build",
 		"frontendDist": "../build",
 		"removeUnusedCommands": true
 	},

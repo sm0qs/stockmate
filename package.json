@@ -12,12 +12,11 @@
 	},
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"prepare": "svelte-kit sync",
-		"icons": "tauri icon static/app-icon.svg",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"dev": "tauri dev",
+		"build": "tauri build",
+		"prepare": "node ./scripts/prepare.js",
+		"check": "node ./scripts/check.js",
+		"dev:clean": "node ./scripts/clean.js",
 		"tauri": "tauri",
 		"format": "prettier --write . && cargo fmt --all --manifest-path ./src-tauri/Cargo.toml"
 	},
@@ -40,5 +39,5 @@
 		"node": ">=24",
 		"pnpm": ">=10"
 	},
-	"packageManager": "pnpm@10.27.0"
+	"packageManager": "pnpm@10.26.2"
 }
