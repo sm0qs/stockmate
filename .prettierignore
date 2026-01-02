@@ -1,0 +1,12 @@
+# Package Managers
+pnpm-lock.yaml
+
+# Rust files
+/src-tauri/target
+/src-tauri/target/**
+/src-tauri/gen/schemas
+/src-tauri/Cargo.lock
+
+# any supported files
+!/src-tauri/**/*.json
+!/src-tauri/**/*.toml

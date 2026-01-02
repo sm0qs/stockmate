@@ -1,10 +1,11 @@
 {
-  "recommendations": [
-    "svelte.svelte-vscode",
-    "tauri-apps.tauri-vscode",
-    "rust-lang.rust-analyzer",
-    "tamasfe.even-better-toml",
-    "esbenp.prettier-vscode",
-    "fill-labs.dependi"
-  ]
+	"recommendations": [
+		"svelte.svelte-vscode",
+		"tauri-apps.tauri-vscode",
+		"rust-lang.rust-analyzer",
+		"tamasfe.even-better-toml",
+		"esbenp.prettier-vscode",
+		"fill-labs.dependi",
+		"EditorConfig.EditorConfig"
+	]
 }

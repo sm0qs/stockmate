@@ -1,39 +1,44 @@
 {
-  "name": "stockmate",
-  "private": true,
-  "version": "0.0.0",
-  "description": "Upload photos to stock services and social media",
-  "author": "sm0qs",
-  "license": "GPL-3.0-or-later",
-  "bugs": "https://github.com/sm0qs/stockmate/issues/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sm0qs/stockmate/"
-  },
-  "type": "module",
-  "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "prepare": "svelte-kit sync",
-    "icons": "tauri icon static/app-icon.svg",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "tauri": "tauri"
-  },
-  "dependencies": {
-    "svelte": "^5"
-  },
-  "devDependencies": {
-    "@sveltejs/adapter-static": "^3",
-    "@sveltejs/kit": "^2",
-    "@sveltejs/vite-plugin-svelte": "^6",
-    "@tauri-apps/cli": "^2.9",
-    "svelte-check": "^4",
-    "vite": "^7"
-  },
-  "engines": {
-    "node": ">=24",
-    "pnpm": ">=10"
-  },
-  "packageManager": "pnpm@10.27.0"
+	"name": "stockmate",
+	"private": true,
+	"version": "0.0.0",
+	"description": "Upload photos to stock services and social media",
+	"author": "sm0qs",
+	"license": "GPL-3.0-or-later",
+	"bugs": "https://github.com/sm0qs/stockmate/issues/",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sm0qs/stockmate/"
+	},
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"prepare": "svelte-kit sync",
+		"icons": "tauri icon static/app-icon.svg",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"tauri": "tauri",
+		"format": "prettier --write . && cargo fmt --all --manifest-path ./src-tauri/Cargo.toml"
+	},
+	"dependencies": {
+		"svelte": "^5"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-static": "^3",
+		"@sveltejs/kit": "^2",
+		"@sveltejs/vite-plugin-svelte": "^6",
+		"@tauri-apps/cli": "^2.9",
+		"@trivago/prettier-plugin-sort-imports": "^6",
+		"prettier": "^3",
+		"prettier-plugin-svelte": "^3",
+		"prettier-plugin-toml": "^2",
+		"svelte-check": "^4",
+		"vite": "^7"
+	},
+	"engines": {
+		"node": ">=24",
+		"pnpm": ">=10"
+	},
+	"packageManager": "pnpm@10.27.0"
 }
