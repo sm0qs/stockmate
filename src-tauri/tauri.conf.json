@@ -15,8 +15,8 @@
 			{
 				"label": "main",
 				"title": "Stockmate",
-				"width": 1280,
-				"height": 800
+				"width": 900,
+				"height": 600
 			}
 		],
 		"security": {

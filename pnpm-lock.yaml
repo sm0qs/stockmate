@@ -11,6 +11,9 @@ importers:
       '@fontsource-variable/space-grotesk':
         specifier: ^5
         version: 5.2.10
+      '@tauri-apps/api':
+        specifier: ~2.9
+        version: 2.9.1
       '@tauri-apps/plugin-log':
         specifier: 2.7.1
         version: 2.7.1

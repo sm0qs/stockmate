@@ -1,3 +1,6 @@
+mod core;
+
+use crate::core::colors::system_color::get_system_accent_color;
 use tauri::Manager;
 use tauri_plugin_log::{Target, TargetKind, TimezoneStrategy};
 
@@ -20,7 +23,7 @@ pub fn run() {
 			if cfg!(debug_assertions) {
 				builder = builder
 					.target(Target::new(TargetKind::Stdout))
-					.level(log::LevelFilter::Info)
+					.level(log::LevelFilter::Debug)
 			}
 			// Logging in release
 			else {
@@ -36,7 +39,7 @@ pub fn run() {
 		// Prevent webview shortcuts like CTRL+P or CTRL+J in release builds
 		.plugin(tauri_plugin_prevent_default::debug())
 		// Rust commands to be invoked from the frontend
-		.invoke_handler(tauri::generate_handler![])
+		.invoke_handler(tauri::generate_handler![get_system_accent_color])
 		.run(tauri::generate_context!())
 		.expect("error while running tauri application");
 }

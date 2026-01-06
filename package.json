@@ -23,6 +23,7 @@
 	},
 	"dependencies": {
 		"@fontsource-variable/space-grotesk": "^5",
+		"@tauri-apps/api": "~2.9",
 		"@tauri-apps/plugin-log": "2.7.1",
 		"svelte": "^5"
 	},

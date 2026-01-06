@@ -33,6 +33,10 @@ tauri-plugin-single-instance = "2"
 # Other
 log = "0"
 
+# Windows only dependencies
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0", features = ["UI_ViewManagement_Core"] }
+
 [profile.dev]
 incremental = true
 
