@@ -3,5 +3,15 @@
 	"identifier": "plugins",
 	"description": "Plugins capabilities",
 	"windows": ["main"],
-	"permissions": ["log:allow-log"]
+	"permissions": [
+		"log:allow-log",
+		{
+			"identifier": "opener:allow-open-url",
+			"allow": [
+				{
+					"url": "https://github.com/sm0qs/stockmate"
+				}
+			]
+		}
+	]
 }

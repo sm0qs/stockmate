@@ -38,6 +38,8 @@ pub fn run() {
 		})
 		// Prevent webview shortcuts like CTRL+P or CTRL+J in release builds
 		.plugin(tauri_plugin_prevent_default::debug())
+		// Opener plugin to open links in default browser
+		.plugin(tauri_plugin_opener::init())
 		// Rust commands to be invoked from the frontend
 		.invoke_handler(tauri::generate_handler![get_system_accent_color])
 		.run(tauri::generate_context!())
