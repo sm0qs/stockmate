@@ -21,23 +21,22 @@
 		"tauri": "tauri",
 		"format": "prettier --write . && cargo fmt --all --manifest-path ./src-tauri/Cargo.toml"
 	},
-	"dependencies": {
-		"@fontsource-variable/space-grotesk": "^5",
-		"@tauri-apps/api": "~2.9",
-		"@tauri-apps/plugin-log": "2.7.1",
-		"svelte": "^5"
-	},
 	"devDependencies": {
+		"@fontsource-variable/space-grotesk": "^5",
+		"@lucide/svelte": "^0",
 		"@sveltejs/adapter-static": "^3",
 		"@sveltejs/kit": "^2",
 		"@sveltejs/vite-plugin-svelte": "^6",
 		"@tailwindcss/vite": "^4",
+		"@tauri-apps/api": "~2.9",
 		"@tauri-apps/cli": "~2.9",
+		"@tauri-apps/plugin-log": "2.7.1",
 		"@trivago/prettier-plugin-sort-imports": "^6",
 		"prettier": "^3",
 		"prettier-plugin-svelte": "^3",
 		"prettier-plugin-tailwindcss": "^0",
 		"prettier-plugin-toml": "^2",
+		"svelte": "^5",
 		"svelte-check": "^4",
 		"tailwindcss": "^4",
 		"vite": "^7"
