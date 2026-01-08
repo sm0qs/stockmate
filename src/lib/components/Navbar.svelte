@@ -18,10 +18,10 @@
 		{#each topIcons as { href, icon }}
 			<a
 				{href}
-				class="flex h-10 w-10 items-center justify-center rounded-lg transition
-                {page.url.pathname === href ? 'bg-accent-dark text-dark' : 'hover:bg-accent/50'}"
+				class={`flex h-10 w-10 items-center justify-center rounded-lg transition
+				${page.url.pathname === href ? "bg-accent text-on-accent" : "hover:bg-accent-dark"}`}
 			>
-				<svelte:component this={icon} size={25} />
+				<svelte:component this={icon} size={24} />
 			</a>
 		{/each}
 	</div>
@@ -29,10 +29,10 @@
 		{#each bottomIcons as { href, icon }}
 			<a
 				{href}
-				class="flex h-10 w-10 items-center justify-center rounded-lg transition
-                {page.url.pathname === href ? 'bg-accent-dark text-dark' : 'hover:bg-accent/50'}"
+				class={`flex h-10 w-10 items-center justify-center rounded-lg transition
+				${page.url.pathname === href ? "bg-accent text-on-accent" : "hover:bg-accent-dark"}`}
 			>
-				<svelte:component this={icon} size={25} />
+				<svelte:component this={icon} size={24} />
 			</a>
 		{/each}
 	</div>

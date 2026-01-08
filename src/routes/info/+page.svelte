@@ -22,14 +22,17 @@
 		workflow.
 	</p>
 	<button
-		class="text-bg mt-2.5 flex cursor-pointer items-center gap-2 rounded bg-accent px-4 py-2 font-medium text-dark transition hover:bg-accent-dark hover:text-light"
+		class="mt-2.5 flex cursor-pointer items-center gap-2 rounded
+		       bg-accent px-4 py-2
+		       font-medium text-on-accent transition hover:bg-accent-dark hover:text-light
+		       "
 		on:click={() => openGithub()}
 	>
 		<Github />
 		View on GitHub
 	</button>
 
-	<p class="mt-2.5 text-sm">
+	<p class="mt-2 text-sm">
 		Version: {version}
 	</p>
 </div>

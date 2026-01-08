@@ -5,7 +5,7 @@
 	import { onMount } from "svelte";
 
 	onMount(async () => {
-		getSystemAccentColor();
+		await getSystemAccentColor();
 	});
 	let { children } = $props();
 </script>
