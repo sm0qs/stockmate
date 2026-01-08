@@ -1,4 +1,3 @@
-#[cfg(target_os = "linux")]
 pub fn get_kde_accent_color() -> Option<String> {
 	use std::env;
 	use std::fs::read_to_string;

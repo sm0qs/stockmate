@@ -26,7 +26,7 @@ pub fn get_system_accent_color() -> Option<String> {
 #[cfg(target_os = "linux")]
 #[tauri::command]
 pub fn get_system_accent_color() -> Option<String> {
-	use super::linux_colors::get_kde_accent_color;
+	use super::linux_de::get_kde_accent_color;
 	use std::env;
 	log::debug!("Fetching system accent color on Linux");
 

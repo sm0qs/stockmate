@@ -1,6 +1,6 @@
-mod core;
+mod app;
 
-use crate::core::colors::system_color::get_system_accent_color;
+use app::colors::get_system_accent_color;
 use tauri::Manager;
 use tauri_plugin_log::{Target, TargetKind, TimezoneStrategy};
 
