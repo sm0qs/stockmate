@@ -26,13 +26,16 @@ serde_json = "1"
 tauri = { version = "~2.9", features = [] }
 
 # Plugins
+tauri-plugin-dialog = "2"
 tauri-plugin-log = "2"
 tauri-plugin-opener = "2"
 tauri-plugin-prevent-default = "4"
 tauri-plugin-single-instance = "2"
+tauri-plugin-sql = { version = "2", features = ["sqlite"] }
 
 # Other
 log = "0"
+sqlx = "0"
 
 # Windows only dependencies
 [target.'cfg(windows)'.dependencies]

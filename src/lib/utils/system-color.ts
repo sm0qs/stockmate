@@ -1,5 +1,4 @@
 import { invoke } from "@tauri-apps/api/core";
-import { error } from "@tauri-apps/plugin-log";
 
 function hexToRgb(hex: string) {
 	const clean = hex.replace("#", "");
@@ -38,16 +37,12 @@ function getReadableTextColor(accentHex: string) {
 }
 
 export async function getSystemAccentColor() {
-	try {
-		const accent = await invoke<string | null>("get_system_accent_color");
-		if (!accent) return;
+	const accent = await invoke<string | null>("get_system_accent_color");
+	if (!accent) return;
 
-		const root = document.documentElement.style;
-		const textColor = getReadableTextColor(accent);
+	const root = document.documentElement.style;
+	const textColor = getReadableTextColor(accent);
 
-		root.setProperty("--color-accent", accent);
-		root.setProperty("--color-on-accent", textColor);
-	} catch (e) {
-		error(`invoke get_system_accent_color failed: ${e}`);
-	}
+	root.setProperty("--color-accent", accent);
+	root.setProperty("--color-on-accent", textColor);
 }

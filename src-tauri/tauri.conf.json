@@ -24,6 +24,11 @@
 			"capabilities": ["core", "plugins"]
 		}
 	},
+	"plugins": {
+		"sql": {
+			"preload": ["sqlite:data.db"]
+		}
+	},
 	"bundle": {
 		"publisher": "sm0qs",
 		"category": "Photography",

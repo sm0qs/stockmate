@@ -12,6 +12,7 @@
 					"url": "https://github.com/sm0qs/stockmate"
 				}
 			]
-		}
+		},
+		"dialog:allow-open"
 	]
 }

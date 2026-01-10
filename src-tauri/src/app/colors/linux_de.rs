@@ -3,8 +3,6 @@ pub fn get_kde_accent_color() -> Option<String> {
 	use std::fs::read_to_string;
 	use std::path::PathBuf;
 
-	log::debug!("Fetching KDE accent color");
-
 	let home = env::var("HOME").ok()?;
 	let config_path = PathBuf::from(home).join(".config/kdeglobals");
 
@@ -15,8 +13,8 @@ pub fn get_kde_accent_color() -> Option<String> {
 
 	let content = match read_to_string(&config_path) {
 		Ok(c) => c,
-		Err(err) => {
-			log::debug!("Failed to read kdeglobals: {}", err);
+		Err(e) => {
+			log::debug!("Failed to read kdeglobals: {}", e);
 			return None;
 		}
 	};
@@ -52,7 +50,7 @@ pub fn get_kde_accent_color() -> Option<String> {
 
 			let hex_color = format!("#{:02X}{:02X}{:02X}", r, g, b);
 
-			log::debug!("System accent color fetched: {}", hex_color);
+			log::debug!("Linux:KDE accent color fetched: {}", hex_color);
 
 			return Some(hex_color);
 		}
