@@ -1,6 +1,8 @@
 mod app;
 
 use app::colors::get_system_accent_color;
+use app::database::get_migrations;
+use app::paths::{choose_path, delete_path, fetch_paths, open_path, save_path};
 use tauri::Manager;
 use tauri_plugin_log::{Target, TargetKind, TimezoneStrategy};
 
@@ -40,8 +42,23 @@ pub fn run() {
 		.plugin(tauri_plugin_prevent_default::debug())
 		// Opener plugin to open links in default browser
 		.plugin(tauri_plugin_opener::init())
+		// SQL plugin for database interactions
+		.plugin(
+			tauri_plugin_sql::Builder::default()
+				.add_migrations("sqlite:data.db", get_migrations())
+				.build(),
+		)
+		// Dialog plugin for folder selection
+		.plugin(tauri_plugin_dialog::init())
 		// Rust commands to be invoked from the frontend
-		.invoke_handler(tauri::generate_handler![get_system_accent_color])
+		.invoke_handler(tauri::generate_handler![
+			get_system_accent_color,
+			save_path,
+			choose_path,
+			fetch_paths,
+			delete_path,
+			open_path
+		])
 		.run(tauri::generate_context!())
 		.expect("error while running tauri application");
 }
