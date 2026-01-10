@@ -34,7 +34,7 @@ tauri-plugin-single-instance = "2"
 tauri-plugin-sql = { version = "2", features = ["sqlite"] }
 
 # Other
-keyring = { version = "3", features = ["windows-native"] }
+keyring = { version = "3", features = ["windows-native", "sync-secret-service"] }
 log = "0"
 sqlx = "0"
 
