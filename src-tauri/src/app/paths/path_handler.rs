@@ -1,4 +1,5 @@
 use crate::app::database::get_db_pool;
+use keyring::Entry;
 use sqlx::{query, query_as};
 use std::fs::canonicalize;
 use std::path::Path;
@@ -20,6 +21,8 @@ pub async fn choose_path(app: AppHandle) {
 #[tauri::command]
 pub async fn save_path(app: AppHandle, path_str: String) -> Result<(), String> {
 	log::debug!("Saving path: {}", path_str);
+
+	store();
 
 	let canonical_path = match canonicalize(&path_str) {
 		Ok(p) => p,
@@ -130,4 +133,32 @@ pub async fn delete_path(app: AppHandle, path_str: String) -> Result<(), String>
 #[tauri::command]
 pub fn open_path(app: AppHandle, path_str: String) {
 	let _ = app.opener().open_path(path_str, None::<&str>);
+}
+
+fn store() {
+	let entry = match Entry::new("pl.foxlab.stockmate", "test") {
+		Ok(e) => e,
+		Err(e) => {
+			let msg = format!("Keyring error (new): {}", e);
+			log::warn!("{}", msg);
+			return;
+		}
+	};
+
+	if let Err(e) = entry.set_password("topS3cr3tP4$$w0rd") {
+		let msg = format!("Keyring error (set_password): {}", e);
+		log::warn!("{}", msg);
+		return;
+	}
+
+	let password = match entry.get_password() {
+		Ok(p) => p,
+		Err(e) => {
+			let msg = format!("Keyring error (get_password): {}", e);
+			log::warn!("{}", msg);
+			return;
+		}
+	};
+
+	println!("My password is '{}'", password);
 }
