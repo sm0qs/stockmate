@@ -8,6 +8,7 @@
 		"prettier-plugin-svelte",
 		"@trivago/prettier-plugin-sort-imports",
 		"prettier-plugin-toml",
+		"prettier-plugin-sql",
 		"prettier-plugin-tailwindcss"
 	],
 	"overrides": [
