@@ -1,0 +1,37 @@
+name: "CodeQL PR Scan (Rust)"
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "src-tauri/**/*.rs"
+      - "src-tauri/Cargo.toml"
+      - "src-tauri/Cargo.lock"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "src-tauri/**/*.rs"
+      - "src-tauri/Cargo.toml"
+      - "src-tauri/Cargo.lock"
+
+jobs:
+  pr-scan:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: rust
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: pr-codeql-rust
