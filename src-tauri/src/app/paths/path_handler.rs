@@ -38,6 +38,12 @@ pub async fn save_path(app: AppHandle, path_str: String) -> Result<(), String> {
 
 	let existing = fetch_paths(app.clone()).await.unwrap_or_default();
 
+	if !existing.is_empty() {
+		let msg = "A directory is already saved — for now only one is allowed.".to_string();
+		log::warn!("{}", msg);
+		return Err(msg);
+	}
+
 	let pool = get_db_pool(app).await?;
 
 	for existing_path in existing {

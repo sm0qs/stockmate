@@ -7,6 +7,7 @@
 		openPath,
 		savePath,
 		savedPaths,
+		hasSavedPaths,
 	} from "$lib/utils/path-handler";
 	import { FolderOpen, Plus, Trash } from "@lucide/svelte";
 	import { onMount } from "svelte";
@@ -34,6 +35,8 @@
 			type="button"
 			class="flex cursor-pointer items-center gap-2 rounded border-2 border-accent bg-accent px-4 py-2 text-on-accent transition hover:border-accent-dark hover:bg-accent-dark hover:text-light"
 			on:click={() => savePath(path_input)}
+			disabled={$hasSavedPaths}
+			class:opacity-50={$hasSavedPaths}
 		>
 			<Plus />
 			Add
@@ -43,13 +46,22 @@
 			type="button"
 			class="flex cursor-pointer items-center gap-2 rounded border-2 border-accent px-4 py-2 transition hover:bg-accent hover:text-on-accent"
 			on:click={choosePath}
+			disabled={$hasSavedPaths}
+			class:opacity-50={$hasSavedPaths}
 		>
 			<FolderOpen />
 			Choose
 		</button>
 	</div>
+
+	{#if $hasSavedPaths}
+		<p class="mt-3 text-sm text-yellow-600">
+			For now, only one photo directory can be added at a time. Please delete the existing one
+			to add a new directory.
+		</p>
+	{/if}
 	<div class="mt-5 space-y-2">
-		{#if $savedPaths.length > 0}
+		{#if $hasSavedPaths}
 			{#each $savedPaths as p}
 				<div
 					class="flex items-center justify-between rounded border-2 border-accent px-4 py-2"
