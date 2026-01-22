@@ -14,6 +14,13 @@
 
 	let path_input: string = "";
 
+	async function handleSave() {
+		await savePath(path_input);
+		if ($savedPaths.length > 0) {
+			path_input = "";
+		}
+	}
+
 	onMount(fetchPaths);
 </script>
 
@@ -25,18 +32,23 @@
 	<div class="flex items-center gap-2">
 		<input
 			type="text"
+			disabled={$hasSavedPaths}
 			placeholder="Enter a full directory path..."
 			class="rounded border-2 border-accent p-2 outline-none"
+			class:opacity-50={$hasSavedPaths}
+			class:cursor-not-allowed={$hasSavedPaths}
 			bind:value={path_input}
-			on:keydown={(e) => e.key === "Enter" && savePath(path_input)}
+			on:keydown={(e) => e.key === "Enter" && handleSave()}
 		/>
 
 		<button
 			type="button"
-			class="flex cursor-pointer items-center gap-2 rounded border-2 border-accent bg-accent px-4 py-2 text-on-accent transition hover:border-accent-dark hover:bg-accent-dark hover:text-light"
-			on:click={() => savePath(path_input)}
 			disabled={$hasSavedPaths}
+			class="flex items-center gap-2 rounded border-2 border-accent bg-accent px-4 py-2 text-on-accent transition hover:border-accent-dark hover:bg-accent-dark hover:text-light"
 			class:opacity-50={$hasSavedPaths}
+			class:cursor-not-allowed={$hasSavedPaths}
+			class:cursor-pointer={!$hasSavedPaths}
+			on:click={handleSave}
 		>
 			<Plus />
 			Add
@@ -44,10 +56,12 @@
 
 		<button
 			type="button"
-			class="flex cursor-pointer items-center gap-2 rounded border-2 border-accent px-4 py-2 transition hover:bg-accent hover:text-on-accent"
-			on:click={choosePath}
 			disabled={$hasSavedPaths}
+			class="flex items-center gap-2 rounded border-2 border-accent px-4 py-2 transition hover:bg-accent hover:text-on-accent"
 			class:opacity-50={$hasSavedPaths}
+			class:cursor-not-allowed={$hasSavedPaths}
+			class:cursor-pointer={!$hasSavedPaths}
+			on:click={choosePath}
 		>
 			<FolderOpen />
 			Choose
