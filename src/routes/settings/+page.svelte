@@ -8,8 +8,9 @@
 		savePath,
 		savedPaths,
 		hasSavedPaths,
+		editPath,
 	} from "$lib/utils/path-handler";
-	import { FolderOpen, Plus, Trash } from "@lucide/svelte";
+	import { FolderOpen, Plus, SquarePen, Trash } from "@lucide/svelte";
 	import { onMount } from "svelte";
 
 	let path_input: string = "";
@@ -87,14 +88,22 @@
 					>
 						{cleanPath(p)}
 					</button>
-
-					<button
-						type="button"
-						class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg bg-red-500 hover:bg-red-800"
-						on:click={() => deletePath(p)}
-					>
-						<Trash size={20} />
-					</button>
+					<div class="flex gap-2">
+						<button
+							type="button"
+							class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg bg-yellow-600 hover:bg-yellow-800"
+							on:click={() => editPath(p)}
+						>
+							<SquarePen size={20} />
+						</button>
+						<button
+							type="button"
+							class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg bg-red-500 hover:bg-red-800"
+							on:click={() => deletePath(p)}
+						>
+							<Trash size={20} />
+						</button>
+					</div>
 				</div>
 			{/each}
 		{:else}

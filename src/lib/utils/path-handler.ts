@@ -27,7 +27,7 @@ export async function openPath(path: string) {
 
 export async function choosePath() {
 	if (get(savedPaths).length > 0) return;
-	await invoke("choose_path");
+	await invoke("choose_path", { edit: false });
 	await fetchPaths();
 }
 
@@ -42,4 +42,9 @@ export function cleanPath(path: string): string {
 		s = s.substring(VERBATIM_PREFIX.length);
 	}
 	return s;
+}
+
+export async function editPath(path: string) {
+	await invoke("choose_path", { edit: true, oldPathStr: path });
+	await fetchPaths();
 }
