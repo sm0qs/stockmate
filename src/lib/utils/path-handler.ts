@@ -10,8 +10,9 @@ export async function fetchPaths() {
 }
 
 export async function savePath(path: string) {
-	if (path.trim() === "") return;
-	if (get(savedPaths).length > 0) return;
+	if (path.trim() === "" || get(savedPaths).length > 0) {
+		return;
+	}
 	await invoke("save_path", { pathStr: path });
 	await fetchPaths();
 }
@@ -26,7 +27,9 @@ export async function openPath(path: string) {
 }
 
 export async function choosePath() {
-	if (get(savedPaths).length > 0) return;
+	if (get(savedPaths).length > 0) {
+		return;
+	}
 	await invoke("choose_path", { edit: false });
 	await fetchPaths();
 }
