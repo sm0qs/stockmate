@@ -38,7 +38,9 @@ function getReadableTextColor(accentHex: string) {
 
 export async function getSystemAccentColor() {
 	const accent = await invoke<string | null>("get_system_accent_color");
-	if (!accent) return;
+	if (!accent) {
+		return;
+	}
 
 	const root = document.documentElement.style;
 	const textColor = getReadableTextColor(accent);

@@ -7,12 +7,22 @@ use tauri_plugin_dialog::DialogExt;
 use tauri_plugin_opener::OpenerExt;
 
 #[tauri::command]
-pub async fn choose_path(app: AppHandle) {
+pub async fn choose_path(app: AppHandle, edit: bool, _old_path_str: Option<String>) {
 	let path = app.dialog().file().blocking_pick_folder();
 	match path {
-		Some(p) => {
-			save_path(app, p.to_string()).await.ok();
-		}
+		Some(p) => match edit {
+			true => match _old_path_str {
+				Some(old_path_str) => {
+					edit_path(app, old_path_str, p.to_string()).await.ok();
+				}
+				None => {
+					log::warn!("Old path string not provided for edit operation");
+				}
+			},
+			_ => {
+				save_path(app, p.to_string()).await.ok();
+			}
+		},
 		None => log::debug!("No path chosen"),
 	}
 }
@@ -37,6 +47,12 @@ pub async fn save_path(app: AppHandle, path_str: String) -> Result<(), String> {
 	}
 
 	let existing = fetch_paths(app.clone()).await.unwrap_or_default();
+
+	if !existing.is_empty() {
+		let msg = "A directory is already saved — for now only one is allowed.".to_string();
+		log::warn!("{}", msg);
+		return Err(msg);
+	}
 
 	let pool = get_db_pool(app).await?;
 
@@ -130,4 +146,28 @@ pub async fn delete_path(app: AppHandle, path_str: String) -> Result<(), String>
 #[tauri::command]
 pub fn open_path(app: AppHandle, path_str: String) {
 	let _ = app.opener().open_path(path_str, None::<&str>);
+}
+
+async fn edit_path(
+	_app: AppHandle,
+	old_path_str: String,
+	new_path_str: String,
+) -> Result<(), String> {
+	log::debug!("Editing path from: {} to: {}", old_path_str, new_path_str);
+	let pool = get_db_pool(_app).await.unwrap();
+
+	let res = query("UPDATE photo_directories SET path = (?) WHERE path = (?)")
+		.bind(new_path_str)
+		.bind(old_path_str)
+		.execute(&pool)
+		.await;
+
+	match res {
+		Ok(_) => Ok(()),
+		Err(e) => {
+			let msg = format!("Failed to edit path: {}", e);
+			log::warn!("{}", msg);
+			Err(msg)
+		}
+	}
 }

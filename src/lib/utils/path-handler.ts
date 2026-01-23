@@ -1,7 +1,8 @@
 import { invoke } from "@tauri-apps/api/core";
-import { writable } from "svelte/store";
+import { writable, derived, get } from "svelte/store";
 
 export const savedPaths = writable<string[]>([]);
+export const hasSavedPaths = derived(savedPaths, (v) => v.length > 0);
 
 export async function fetchPaths() {
 	const paths = await invoke<string[] | null>("fetch_paths");
@@ -9,7 +10,9 @@ export async function fetchPaths() {
 }
 
 export async function savePath(path: string) {
-	if (path.trim() === "") return;
+	if (path.trim() === "" || get(savedPaths).length > 0) {
+		return;
+	}
 	await invoke("save_path", { pathStr: path });
 	await fetchPaths();
 }
@@ -24,7 +27,10 @@ export async function openPath(path: string) {
 }
 
 export async function choosePath() {
-	await invoke("choose_path");
+	if (get(savedPaths).length > 0) {
+		return;
+	}
+	await invoke("choose_path", { edit: false });
 	await fetchPaths();
 }
 
@@ -39,4 +45,9 @@ export function cleanPath(path: string): string {
 		s = s.substring(VERBATIM_PREFIX.length);
 	}
 	return s;
+}
+
+export async function editPath(path: string) {
+	await invoke("choose_path", { edit: true, oldPathStr: path });
+	await fetchPaths();
 }
