@@ -1,9 +1,6 @@
 <script lang="ts">
-	import { choosePath, fetchPaths, savedPaths } from "$lib/utils/path-handler";
+	import { choosePath, savedPaths } from "$lib/utils/path-handler";
 	import { Plus } from "@lucide/svelte";
-	import { onMount } from "svelte";
-
-	onMount(fetchPaths);
 </script>
 
 <div class="">

@@ -3,7 +3,6 @@
 		choosePath,
 		cleanPath,
 		deletePath,
-		fetchPaths,
 		openPath,
 		savePath,
 		savedPaths,
@@ -11,7 +10,6 @@
 		editPath,
 	} from "$lib/utils/path-handler";
 	import { FolderOpen, Plus, SquarePen, Trash } from "@lucide/svelte";
-	import { onMount } from "svelte";
 
 	let path_input: string = "";
 
@@ -21,8 +19,6 @@
 			path_input = "";
 		}
 	}
-
-	onMount(fetchPaths);
 </script>
 
 <div class="rounded-xl border border-accent p-5">
