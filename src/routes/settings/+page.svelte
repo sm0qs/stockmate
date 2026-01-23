@@ -21,6 +21,7 @@
 	}
 </script>
 
+<h1 class="mb-5 text-5xl font-semibold">Settings</h1>
 <div class="rounded-xl border border-accent p-5">
 	<div class="mb-5">
 		<h2 class="text-xl font-semibold">Photo directories:</h2>

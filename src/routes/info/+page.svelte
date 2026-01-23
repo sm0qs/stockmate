@@ -14,6 +14,7 @@
 	}
 </script>
 
+<h1 class="mb-5 text-5xl font-semibold">Info</h1>
 <div class="rounded-xl border border-accent p-5">
 	<p>
 		Stockmate is a desktop application designed to assist photographers in streamlining the
