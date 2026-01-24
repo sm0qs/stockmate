@@ -8,7 +8,7 @@ To get started, please follow these steps:
 3.  Install dependencies: `pnpm i`
 4.  Start the development server: `pnpm dev`
 5.  Make your **edits**.
-6.  Run formatting: `pnpm dev:format`
+6.  Run formatting: `pnpm format`
 7.  Submit a **Pull Request**.
 
 ### Managing Dependency Versions
