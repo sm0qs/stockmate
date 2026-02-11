@@ -14,7 +14,7 @@
 	"explorer.fileNesting.expand": false,
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.patterns": {
-		"package.json": "pnpm-lock.yaml, pnpm-workspace.yaml, .nvmrc",
+		"package.json": "pnpm-lock.yaml, .nvmrc",
 		".editorconfig": ".prettierrc, .prettierignore, .rustfmt.toml",
 		"README.md": "CONTRIBUTING.md, SECURITY.md"
 	},
