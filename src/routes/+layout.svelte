@@ -16,7 +16,7 @@
 	<aside>
 		<Navbar />
 	</aside>
-	<section class="p-5">
+	<section class="flex-1 p-5">
 		{@render children()}
 	</section>
 </main>

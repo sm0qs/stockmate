@@ -1,11 +1,10 @@
 <script lang="ts">
 	import { choosePath, savedPaths } from "$lib/utils/path-handler";
-	import { Plus } from "@lucide/svelte";
+	import { Plus, RefreshCw } from "@lucide/svelte";
 </script>
 
-<h1 class="mb-5 text-5xl font-semibold">Photos</h1>
-
 {#if $savedPaths.length === 0}
+	<h1 class="mb-5 text-5xl font-semibold">Photos</h1>
 	<div>
 		<button
 			on:click={choosePath}
@@ -16,5 +15,15 @@
 		</button>
 	</div>
 {:else}
-	<div>Photo grid will appear here.</div>
+	<div class="mb-5 flex w-full items-center justify-between">
+		<h1 class="text-5xl font-semibold">Photos</h1>
+
+		<button
+			on:click={reloadPhotos}
+			class="flex items-center gap-2 rounded border-2 border-accent bg-accent px-4 py-2 text-on-accent transition hover:border-accent-dark hover:bg-accent-dark hover:text-light"
+		>
+			<RefreshCw size={20} />
+			Refresh
+		</button>
+	</div>
 {/if}
