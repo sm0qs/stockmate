@@ -19,7 +19,7 @@
 		<h1 class="text-5xl font-semibold">Photos</h1>
 
 		<button
-			on:click={reloadPhotos}
+			onclick={reloadPhotos}
 			class="flex items-center gap-2 rounded border-2 border-accent bg-accent px-4 py-2 text-on-accent transition hover:border-accent-dark hover:bg-accent-dark hover:text-light"
 		>
 			<RefreshCw size={20} />
