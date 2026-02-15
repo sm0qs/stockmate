@@ -36,7 +36,7 @@
 			class:opacity-50={$hasSavedPaths}
 			class:cursor-not-allowed={$hasSavedPaths}
 			bind:value={path_input}
-			on:keydown={(e) => e.key === "Enter" && handleSave()}
+			onkeydown={(e) => e.key === "Enter" && handleSave()}
 		/>
 
 		<button
@@ -46,7 +46,7 @@
 			class:opacity-50={$hasSavedPaths}
 			class:cursor-not-allowed={$hasSavedPaths}
 			class:cursor-pointer={!$hasSavedPaths}
-			on:click={handleSave}
+			onclick={handleSave}
 		>
 			<Plus />
 			Add
@@ -59,7 +59,7 @@
 			class:opacity-50={$hasSavedPaths}
 			class:cursor-not-allowed={$hasSavedPaths}
 			class:cursor-pointer={!$hasSavedPaths}
-			on:click={choosePath}
+			onclick={choosePath}
 		>
 			<FolderOpen />
 			Choose
@@ -81,7 +81,7 @@
 					<button
 						type="button"
 						class="text-left break-all select-all hover:underline"
-						on:click={() => openPath(p)}
+						onclick={() => openPath(p)}
 					>
 						{cleanPath(p)}
 					</button>
@@ -89,14 +89,14 @@
 						<button
 							type="button"
 							class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg bg-yellow-600 hover:bg-yellow-800"
-							on:click={() => editPath(p)}
+							onclick={() => editPath(p)}
 						>
 							<SquarePen size={20} />
 						</button>
 						<button
 							type="button"
 							class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg bg-red-500 hover:bg-red-800"
-							on:click={() => deletePath(p)}
+							onclick={() => deletePath(p)}
 						>
 							<Trash size={20} />
 						</button>

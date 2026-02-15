@@ -8,7 +8,7 @@
 {#if $savedPaths.length === 0}
 	<div>
 		<button
-			on:click={choosePath}
+			onclick={choosePath}
 			class="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-accent px-20 py-16 text-xl font-semibold text-accent transition hover:bg-accent hover:text-on-accent"
 		>
 			<Plus size={48} />

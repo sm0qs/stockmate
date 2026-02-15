@@ -27,7 +27,7 @@
 		       bg-accent px-4 py-2
 		       font-medium text-on-accent transition hover:bg-accent-dark hover:text-light
 		       "
-		on:click={() => openGithub()}
+		onclick={() => openGithub()}
 	>
 		<Github />
 		View on GitHub
