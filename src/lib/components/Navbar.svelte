@@ -13,7 +13,7 @@
 	];
 </script>
 
-<nav class="flex h-screen w-14 flex-col justify-between border-r border-accent py-4 text-light/50">
+<nav class="flex h-full w-14 flex-col justify-between border-r border-accent py-4 text-light/50">
 	<div class="flex flex-col items-center space-y-2">
 		{#each topIcons as { href, icon }}
 			<a
