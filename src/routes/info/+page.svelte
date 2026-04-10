@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Github } from "@lucide/svelte";
+	import { SiGithub } from "@icons-pack/svelte-simple-icons";
 	import { getVersion } from "@tauri-apps/api/app";
 	import { openUrl } from "@tauri-apps/plugin-opener";
 	import { onMount } from "svelte";
@@ -29,7 +29,7 @@
 		       "
 		onclick={() => openGithub()}
 	>
-		<Github />
+		<SiGithub />
 		View on GitHub
 	</button>
 
